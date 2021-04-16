@@ -18,3 +18,15 @@
 ```
 
 ### `email_id` field is mandatory to pass
+
+### Code - 100
+
+#### Response failed because of no email_id in request body
+
+### Code - 200
+
+#### Response failed because of email_id already exists in database
+
+### Code - 300
+
+#### Response succeded and email id signed-up
