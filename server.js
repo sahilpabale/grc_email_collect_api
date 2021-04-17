@@ -38,7 +38,7 @@ app.get("/", (req, res) => {
 
 app.post("/signup", async (req, res) => {
   try {
-    const { email_id, ip_address, city, state } = req.body;
+    const { email_id } = req.body;
 
     if (!email_id) {
       return res.status(404).json({
@@ -62,8 +62,8 @@ app.post("/signup", async (req, res) => {
     }
 
     const result = await client.query(
-      `INSERT INTO signup_list (email_id, ip_address, city_name, state_name) VALUES ($1, $2, $3, $4) RETURNING email_id;`,
-      [email_id, ip_address, city, state],
+      `INSERT INTO signup_list (email_id) VALUES ($1) RETURNING email_id;`,
+      [email_id],
     );
 
     const email = result.rows[0].email_id;
