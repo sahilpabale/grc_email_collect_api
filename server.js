@@ -73,6 +73,7 @@ app.post("/signup", async (req, res) => {
     res.status(200).json({
       status: "success",
       code: "300",
+      data: { email_id: email },
       message: `${email} successfully signed up.`,
     });
   } catch (error) {
